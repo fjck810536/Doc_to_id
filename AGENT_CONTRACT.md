@@ -91,3 +91,11 @@ Chicago / MLA / APA 等只處理它們真正負責的層次。
 - QA / manifest（若相關）
 
 真正的 handoff 必須能讓完全失憶的新 agent 接班。
+
+## H. Maintenance Safety Contract
+
+1. 「看起來多餘」不等於「可安全刪除」。
+2. 已知正常但依賴不明的 legacy path 標記為 `MACHINE_SPIRIT_RISK`。
+3. R2/R3 runtime/environment changes 必須與文件整理分開，且不得在同一版同時做多個未驗證核心更動。
+4. 清理 Fonts、cache、舊 installer、舊 script 前，先做 inventory / provenance / rollback plan。
+5. 優先用新增 diagnostics 驗證假設，再修改 production behavior。
