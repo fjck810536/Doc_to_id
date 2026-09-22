@@ -57,3 +57,10 @@
 - Regression slice 必須在 source paragraph semantics 映射後、synthetic layout paragraph（例如 article kicker、special-layout placeholder）注入前完成；或 slicer 必須明確理解這些 synthetic siblings。
 - 已知事故：先插入第 4 篇的 `P_ArticleKicker`、再從第 4 個 `P_ArticleTitle` 截斷，會留下帶 `NEXT_PAGE` 的孤立 kicker，讓 18 頁 Golden Regression 變成 19 頁。
 - 不應為這類 generator bug 修改 Golden Regression 的預期頁數；應修 pipeline order。
+
+## Font folder layering / historical OTF directories
+
+- Multiple historical font folders can coexist while InDesign still resolves the correct active family/style.
+- Finder-visible folder structure is not sufficient proof of active font provenance.
+- Treat deletion of old font folders as R3 / `MACHINE_SPIRIT_RISK` until exact active dependencies and installer ownership are known.
+- Hardened installers should write a file-level manifest (filename/version/hash/install path) and provide cleanup as a separate explicit operation.
