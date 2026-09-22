@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Build Manifest",
+  "type": "object",
+  "required": ["engine_version","project_id","project_version","design_profile","source_sha256","target","status"],
+  "properties": {
+    "engine_version": {"type": "string"},
+    "project_id": {"type": "string"},
+    "project_version": {"type": "string"},
+    "design_profile": {"type": "string"},
+    "source_sha256": {"type": "string"},
+    "target": {"type": "object"},
+    "regression_status": {"enum": ["NOT_RUN","PASS","FAIL"]},
+    "full_qa_status": {"enum": ["NOT_RUN","PASS","FAIL"]},
+    "status": {"enum": ["WORKING","BLOCKED","PASS","RELEASED"]},
+    "artifacts": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

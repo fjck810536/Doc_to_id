@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/fjck810536/Doc_to_id/schemas/project.schema.json",
+  "title": "Doc_to_id Book Project",
+  "type": "object",
+  "required": ["schema_version","project_id","title","publication_source","structure","design_profile","current_state","production_target"],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "project_id": {"type": "string", "minLength": 1},
+    "title": {"type": "string", "minLength": 1},
+    "language": {"type": ["string", "array"]},
+    "publication_source": {"type": "string"},
+    "structure": {"type": "string"},
+    "design_profile": {"type": "string"},
+    "current_state": {"type": "string"},
+    "next_action": {"type": "string"},
+    "production_target": {
+      "type": "object",
+      "required": ["application", "version"],
+      "properties": {
+        "application": {"type": "string"},
+        "version": {"type": "string"},
+        "scripting_runtime": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "last_good_build": {"type": ["string", "null"]},
+    "stage": {"enum": ["editorial","structure","design","production","qa","release","paused"]}
+  },
+  "additionalProperties": true
+}

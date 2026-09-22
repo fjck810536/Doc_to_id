@@ -1,0 +1,23 @@
+{
+  "profile_id": "Prototype01",
+  "version": "0.1-reference",
+  "status": "calibrating",
+  "page": {"trim":"A5","facing_pages":true,"bleed_mm":3},
+  "typography": {
+    "cjk_serif":"Noto Serif CJK TC",
+    "cjk_sans":"Noto Sans CJK TC",
+    "latin_body":"EB Garamond 12",
+    "latin_small":"EB Garamond 08",
+    "mono":"Menlo",
+    "body_size_pt":9.7,
+    "effective_body_leading_pt":12.2,
+    "first_line_indent_pt_approx":19
+  },
+  "footnotes":{"size_pt":7.5,"leading_pt":10.4,"marker":"superscript","marker_gap":"thin-space"},
+  "article_opening":{"model":"story-native","sequence":["kicker","title","paragraph-rule-below","first-body"],"force_recto":false},
+  "running_heads":{"mode":"semantic","preferred_implementation":"text-variables-or-rebuildable-state"},
+  "page_classes":{"part":{"force_recto":true},"article":{"force_recto":false},"blank":{"folio_header":"class-specific"}},
+  "font_policy":{"unexpected_active_fonts":"blocking","silent_substitution":false},
+  "special_layout_policy":{"unverified_geometry":"PLACEHOLDER"},
+  "editorial_red":"#7D3033"
+}

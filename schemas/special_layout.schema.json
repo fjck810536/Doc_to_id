@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Special Layout",
+  "type": "object",
+  "required": ["id", "source_status", "strategy"],
+  "properties": {
+    "id": {"type": "string"},
+    "source_status": {"enum": ["VERIFIED","PARTIALLY_VERIFIED","SOURCE_UNVERIFIED"]},
+    "strategy": {"enum": ["NATIVE_IND","LINKED_INDD","VECTOR_ASSET","IMAGE_ASSET","PLACEHOLDER"]},
+    "source_files": {"type": "array", "items": {"type": "string"}},
+    "known": {"type": "array", "items": {"type": "string"}},
+    "unknown": {"type": "array", "items": {"type": "string"}},
+    "frame_policy": {"type": "object"},
+    "notes": {"type": "string"}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Design Profile",
+  "type": "object",
+  "required": ["profile_id", "version", "page", "typography", "page_classes"],
+  "properties": {
+    "profile_id": {"type": "string"},
+    "version": {"type": "string"},
+    "status": {"enum": ["draft","calibrating","locked","deprecated"]},
+    "golden_reference": {
+      "type": ["object", "null"],
+      "properties": {"path":{"type":"string"},"sha256":{"type":"string"}}
+    },
+    "page": {"type": "object"},
+    "typography": {"type": "object"},
+    "footnotes": {"type": "object"},
+    "article_opening": {"type": "object"},
+    "running_heads": {"type": "object"},
+    "page_classes": {"type": "object"},
+    "font_policy": {"type": "object"},
+    "special_layout_policy": {"type": "object"}
+  },
+  "additionalProperties": true
+}

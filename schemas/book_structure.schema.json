@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Book Structure",
+  "type": "object",
+  "required": ["version", "nodes"],
+  "properties": {
+    "version": {"type": "string"},
+    "nodes": {"type": "array","items": {"$ref": "#/$defs/node"}}
+  },
+  "$defs": {
+    "node": {
+      "type": "object",
+      "required": ["id", "type", "title"],
+      "properties": {
+        "id": {"type": "string"},
+        "type": {"enum": ["frontmatter","part","collection","preface","article","chapter","section","appendix","backmatter","special_layout"]},
+        "title": {"type": "string"},
+        "source_anchor": {"type": ["string", "null"]},
+        "force_recto": {"type": ["boolean", "null"]},
+        "running_head_label": {"type": ["string", "null"]},
+        "children": {"type": "array","items": {"$ref": "#/$defs/node"}}
+      },
+      "additionalProperties": true
+    }
+  }
+}
