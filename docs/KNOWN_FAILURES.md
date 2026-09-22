@@ -51,3 +51,9 @@
 
 - 具象詩的 DOCX 可能本身就是轉檔後的殘骸。
 - 來源未確認時最安全策略是留 placeholder，而不是「精密還原一個未知的錯誤版本」。
+
+## Regression slicing vs synthetic paragraphs
+
+- Regression slice 必須在 source paragraph semantics 映射後、synthetic layout paragraph（例如 article kicker、special-layout placeholder）注入前完成；或 slicer 必須明確理解這些 synthetic siblings。
+- 已知事故：先插入第 4 篇的 `P_ArticleKicker`、再從第 4 個 `P_ArticleTitle` 截斷，會留下帶 `NEXT_PAGE` 的孤立 kicker，讓 18 頁 Golden Regression 變成 19 頁。
+- 不應為這類 generator bug 修改 Golden Regression 的預期頁數；應修 pipeline order。
